@@ -39,7 +39,7 @@ export function AdminBooksPage() {
 
   const handleStatus = () => {
     if (!confirmStatus) return;
-    updateStatus.mutate({ bookId: confirmStatus.id, newStatus: confirmStatus.status }, {
+    updateStatus.mutate({ id: confirmStatus.id, status: confirmStatus.status }, {
       onSuccess: () => { toast('success', 'Estado actualizado'); setConfirmStatus(null); },
       onError: (e) => toast('error', e.message),
     });
@@ -47,7 +47,7 @@ export function AdminBooksPage() {
 
   const handleImage = () => {
     if (!showImage || !imageUrl) return;
-    updateImage.mutate({ bookId: showImage, image: imageUrl }, {
+    updateImage.mutate({ id: showImage, image: imageUrl }, {
       onSuccess: () => { toast('success', 'Imagen actualizada'); setShowImage(null); setImageUrl(''); },
       onError: (e) => toast('error', e.message),
     });
